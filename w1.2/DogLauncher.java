@@ -15,5 +15,7 @@ public class DogLauncher {
 
         Dog bigger2 = dogs[0].maxDog(dogs[1]);
         bigger2.makeNoise();
+
+        System.out.println(Dog.binomen);
     }
 }

@@ -2,6 +2,8 @@ public class Dog {
 
     public int weightInPounds;
 
+    public static String binomen = "Canis familiaris";
+
     public Dog(int w) {
         weightInPounds = w;
     }
