@@ -23,4 +23,12 @@ public class Dog {
 
         return dog2;
     }
+
+    public Dog maxDog(Dog dog2) {
+        if(this.weightInPounds > dog2.weightInPounds) {
+            return this;
+        }
+
+        return dog2;
+    }
 }

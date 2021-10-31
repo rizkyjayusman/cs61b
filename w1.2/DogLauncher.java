@@ -12,5 +12,8 @@ public class DogLauncher {
 
         Dog bigger = Dog.maxDog(dogs[0], dogs[1]);
         bigger.makeNoise();
+
+        Dog bigger2 = dogs[0].maxDog(dogs[1]);
+        bigger2.makeNoise();
     }
 }
