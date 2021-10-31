@@ -15,4 +15,12 @@ public class Dog {
             System.out.println("awooooooooooo!");
         }
     }
+
+    public static Dog maxDog(Dog dog1, Dog dog2) {
+        if(dog1.weightInPounds > dog2.weightInPounds) {
+            return dog1;
+        }
+
+        return dog2;
+    }
 }

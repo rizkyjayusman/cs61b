@@ -9,5 +9,8 @@ public class DogLauncher {
         dogs[1] = new Dog(20);
 
         dogs[0].makeNoise();
+
+        Dog bigger = Dog.maxDog(dogs[0], dogs[1]);
+        bigger.makeNoise();
     }
 }
