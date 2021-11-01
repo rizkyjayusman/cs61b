@@ -19,9 +19,9 @@ public class NBody {
         return arr;
     }
 
-    public static void printBackground(String filename) {
+    public static void printBackground(String filename, double radius) {
         StdDraw.enableDoubleBuffering();
-        StdDraw.setScale(-500, 500);
+        StdDraw.setScale(-radius, radius);
         StdDraw.clear();
         StdDraw.picture(0, 0, filename);
         StdDraw.show();
@@ -32,6 +32,15 @@ public class NBody {
         double t = Double.parseDouble(args[0]);
         double dt = Double.parseDouble(args[1]);
         String filename = args[2];
-        printBackground(filename);
+
+        double radius = readRadius(filename);
+        printBackground("./images/starfield.jpg", radius);
+
+        Body[] arr = readBodies(filename);
+        System.out.println(arr.length);
+
+        for(Body body : arr) {
+            body.draw();
+        }
     }
 }
