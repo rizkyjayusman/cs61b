@@ -87,4 +87,15 @@ public class Body {
         return sum;
     }
 
+    public void update(double dt, double fX, double fY) {
+        double accelerationX = fX / this.mass;
+        double accelerationY = fY / this.mass;
+
+        this.xxVel = this.xxVel + dt * accelerationX;
+        this.yyVel = this.yyVel + dt * accelerationY;
+
+        this.xxPos = this.xxPos + dt * this.xxVel;
+        this.yyPos = this.yyPos + dt * this.yyVel;
+    }
+
 }
