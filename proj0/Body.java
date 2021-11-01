@@ -24,4 +24,11 @@ public class Body {
     public Body(Body b) {
         this(b.xxPos, b.yyPos, b.xxVel, b.yyVel, b.mass, b.imgFileName);
     }
+
+    public double calcDistance(Body rocinante) {
+        double distanceX = Math.pow(rocinante.xxPos - this.xxPos, 2); 
+        double distanceY = Math.pow(rocinante.yyPos - this.yyPos, 2); 
+        double distance = distanceX + distanceY;
+        return Math.sqrt(distance);
+    }
 }
