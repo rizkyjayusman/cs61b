@@ -25,7 +25,7 @@ public class NBody {
         StdDraw.clear();
         StdDraw.picture(0, 0, filename);
         StdDraw.show();
-        StdDraw.pause(1);
+        StdDraw.pause(2000);
     }
 
     public static void main(String [] args) {
