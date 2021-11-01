@@ -1,5 +1,7 @@
 public class Body {
 
+    private static final double GRAVITATIONAL_VAL = 6.67E-11;
+
     public double xxPos;
 
     public double yyPos;
@@ -31,4 +33,10 @@ public class Body {
         double distance = distanceX + distanceY;
         return Math.sqrt(distance);
     }
+
+    public double calcForceExertedBy(Body rocinante) {
+        double r = Math.pow(calcDistance(rocinante), 2);
+        return (GRAVITATIONAL_VAL * this.mass * rocinante.mass) / r;
+    }
+
 }
