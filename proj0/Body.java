@@ -61,4 +61,30 @@ public class Body {
         return (f * dinstanceY) / r;
     }
 
+    public double calcNetForceExertedByX(Body[] bodies) {
+        double sum = 0.0;
+        for(Body body: bodies) {
+            if(this.equals(body)) {
+                continue;
+            }
+
+            sum += calcForceExertedByX(body);
+        }
+        
+        return sum;
+    }
+
+    public double calcNetForceExertedByY(Body[] bodies) {
+        double sum = 0.0;
+        for(Body body: bodies) {
+            if(this.equals(body)) {
+                continue;
+            }
+
+            sum += calcForceExertedByY(body);
+        }
+
+        return sum;
+    }
+
 }
