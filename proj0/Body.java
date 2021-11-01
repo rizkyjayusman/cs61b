@@ -28,8 +28,8 @@ public class Body {
     }
 
     public double calcDistance(Body rocinante) {
-        double distanceX = Math.pow(rocinante.xxPos - this.xxPos, 2); 
-        double distanceY = Math.pow(rocinante.yyPos - this.yyPos, 2); 
+        double distanceX = Math.pow(calcDistanceX(rocinante), 2); 
+        double distanceY = Math.pow(calcDistanceY(rocinante), 2); 
         double distance = distanceX + distanceY;
         return Math.sqrt(distance);
     }
@@ -37,6 +37,28 @@ public class Body {
     public double calcForceExertedBy(Body rocinante) {
         double r = Math.pow(calcDistance(rocinante), 2);
         return (GRAVITATIONAL_VAL * this.mass * rocinante.mass) / r;
+    }
+
+    private double calcDistanceX(Body rocinante) {
+        return rocinante.xxPos - this.xxPos;
+    }
+
+    private double calcDistanceY(Body rocinante) {
+        return rocinante.yyPos - this.yyPos;
+    }
+
+    public double calcForceExertedByX(Body rocinante) {
+        double f = calcForceExertedBy(rocinante);
+        double distanceX = calcDistanceX(rocinante);
+        double r = calcDistance(rocinante);
+        return (f * distanceX) / r;
+    }
+
+    public double calcForceExertedByY(Body rocinante) {
+        double f = calcForceExertedBy(rocinante);
+        double dinstanceY = calcDistanceY(rocinante);
+        double r = calcDistance(rocinante);
+        return (f * dinstanceY) / r;
     }
 
 }
