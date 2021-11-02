@@ -34,6 +34,14 @@ public class IntList {
         }
     }
 
+    public int get(int i) {
+        if(i == 0) {
+            return this.first;
+        }
+
+        return this.rest.get(i - 1);
+    }
+
     public static void main(String [] args) {
         IntList list = new IntList(5, null);
         list = new IntList(10, list);
@@ -42,5 +50,7 @@ public class IntList {
         list.print();
         System.out.println(list.size());
         System.out.println(list.iterativeSize());
+
+        System.out.println(list.get(2));
     }
 }
