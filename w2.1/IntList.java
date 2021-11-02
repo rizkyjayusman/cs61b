@@ -15,6 +15,17 @@ public class IntList {
         return 1 + this.rest.size();
     }
 
+    public int iterativeSize() {
+        IntList i = this;
+        int total = 0;
+        while(i != null) {
+            total++;
+            i = i.rest;
+        }
+
+        return total;
+    }
+
     public static void main(String [] args) {
         IntList list = new IntList(5, null);
         list = new IntList(10, list);
@@ -24,5 +35,6 @@ public class IntList {
         System.out.println(list.rest.first);
         System.out.println(list.rest.rest.first);
         System.out.println(list.size());
+        System.out.println(list.iterativeSize());
     }
 }
