@@ -29,5 +29,13 @@ public class Walrus {
         System.out.println(x);
         System.out.println(y);
 
+        String i = "Hi";
+        String k;
+        k = i;
+        i = "Hello";
+
+        System.out.println(i);
+        System.out.println(k);
+
     }
 }
