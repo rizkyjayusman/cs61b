@@ -25,7 +25,7 @@ public class NBody {
         StdDraw.clear();
         StdDraw.picture(0, 0, filename);
         StdDraw.show();
-        StdDraw.pause(2000);
+        StdDraw.pause(10);
     }
 
     public static void main(String [] args) {
@@ -34,13 +34,24 @@ public class NBody {
         String filename = args[2];
 
         double radius = readRadius(filename);
-        printBackground("./images/starfield.jpg", radius);
-
-        Body[] arr = readBodies(filename);
-        System.out.println(arr.length);
-
-        for(Body body : arr) {
-            body.draw();
+    
+        Body[] bodies = readBodies(filename);
+        for(int i = 0; i <= t; i++) {
+            printBackground("./images/starfield.jpg", radius);
+            for(int j = 0; j < bodies.length; j++) {
+                double xForces = bodies[j].calcNetForceExertedByX(bodies);
+                double yForces = bodies[j].calcNetForceExertedByY(bodies);
+                bodies[j].update(dt, xForces, yForces);
+                bodies[j].draw();
+            }
+        }
+    
+        StdOut.printf("%d\n", bodies.length);
+        StdOut.printf("%.2e\n", radius);
+        for (int i = 0; i < bodies.length; i++) {
+            StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
+                        bodies[i].xxPos, bodies[i].yyPos, bodies[i].xxVel,
+                        bodies[i].yyVel, bodies[i].mass, bodies[i].imgFileName);   
         }
     }
 }

@@ -101,6 +101,7 @@ public class Body {
     public void draw() {
         StdDraw.picture(this.xxPos, this.yyPos, this.imgFileName);
         StdDraw.show();
+        StdDraw.pause(10);
     }
 
 }
