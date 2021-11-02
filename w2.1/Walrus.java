@@ -1,15 +1,15 @@
 public class Walrus {
 
-    public int height;
-    public double weight;
+    public int weight;
+    public double tuskSize;
 
-    public Walrus(int height, double weight) {
-        this.height = height;
+    public Walrus(int weight, double tuskSize) {
         this.weight = weight;
+        this.tuskSize = tuskSize;
     }
 
     public String toString() {
-        return "Body[x=" + this.height + ", y=" + this.weight + "]";
+        return "Body[x=" + this.weight + ", y=" + this.tuskSize + "]";
     }
 
     public static void main(String [] args) {
