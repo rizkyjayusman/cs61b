@@ -26,14 +26,20 @@ public class IntList {
         return total;
     }
 
+    public void print() {
+        IntList i = this;
+        while(i != null) {
+            System.out.println(i.first);
+            i = i.rest;
+        }
+    }
+
     public static void main(String [] args) {
         IntList list = new IntList(5, null);
         list = new IntList(10, list);
         list = new IntList(15, list);
 
-        System.out.println(list.first);
-        System.out.println(list.rest.first);
-        System.out.println(list.rest.rest.first);
+        list.print();
         System.out.println(list.size());
         System.out.println(list.iterativeSize());
     }
