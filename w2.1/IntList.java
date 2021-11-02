@@ -42,6 +42,16 @@ public class IntList {
         return this.rest.get(i - 1);
     }
 
+    public int iterativeGet(int x) {
+        IntList i = this;
+        while(x > 0) {
+            i = i.rest;
+            x = x - 1;
+        }
+
+        return i.first;
+    }
+
     public static void main(String [] args) {
         IntList list = new IntList(5, null);
         list = new IntList(10, list);
@@ -52,5 +62,6 @@ public class IntList {
         System.out.println(list.iterativeSize());
 
         System.out.println(list.get(2));
+        System.out.println(list.iterativeGet(1));
     }
 }
