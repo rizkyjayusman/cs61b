@@ -32,6 +32,11 @@ public class SinglyLinkList {
     }
 
     public void addLast(int x) {
+        if(first == null) {
+            first = new IntNode(x, null);
+            return;
+        }
+
         IntNode n = first;
         while(n.next != null) {
             n = n.next;
