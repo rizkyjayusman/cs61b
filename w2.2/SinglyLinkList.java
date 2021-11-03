@@ -46,12 +46,25 @@ public class SinglyLinkList {
         print(first);
     } 
 
+    private static int size(IntNode n) {
+        if(n.next == null) {
+            return 1;
+        }
+
+        return 1 + size(n.next);
+    } 
+
+    public int size() {
+        return size(first);
+    }
+
     public static void main(String [] args) {
         SinglyLinkList sllist = new SinglyLinkList(5);
         sllist.addFirst(10);
         sllist.addLast(15);
 
         sllist.print();
+        System.out.println("size => " + sllist.size());
     }
 
 }
