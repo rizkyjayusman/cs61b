@@ -1,6 +1,16 @@
 public class SinglyLinkList {
     
-    public IntNode first;
+    private static class IntNode {
+        public int item;
+        public IntNode next;
+
+        public IntNode(int item, IntNode next) {
+            this.item = item;
+            this.next = next;
+        }
+    }
+
+    private IntNode first;
 
     public SinglyLinkList(int x) {
         first = new IntNode(x, null);
