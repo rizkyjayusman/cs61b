@@ -11,13 +11,16 @@ public class SinglyLinkList {
     }
 
     private IntNode first;
+    private int size = 0;
 
     public SinglyLinkList(int x) {
         first = new IntNode(x, null);
+        size++;
     }
 
     public void addFirst(int x) {
         first = new IntNode(x, first);
+        size++;
     }
 
     public int getFirst() {
@@ -32,6 +35,7 @@ public class SinglyLinkList {
 
         IntNode temp = new IntNode(x, null); 
         n.next = temp;
+        size++;
     }
 
     private static void print(IntNode node) {
@@ -46,16 +50,8 @@ public class SinglyLinkList {
         print(first);
     } 
 
-    private static int size(IntNode n) {
-        if(n.next == null) {
-            return 1;
-        }
-
-        return 1 + size(n.next);
-    } 
-
     public int size() {
-        return size(first);
+        return size;
     }
 
     public static void main(String [] args) {
