@@ -24,11 +24,34 @@ public class SinglyLinkList {
         return first.item;
     }
 
+    public void addLast(int x) {
+        IntNode n = first;
+        while(n.next != null) {
+            n = n.next;
+        }
+
+        IntNode temp = new IntNode(x, null); 
+        n.next = temp;
+    }
+
+    private static void print(IntNode node) {
+        System.out.println(node.item);
+        IntNode n = node.next;
+        if(n != null) {
+            print(n);
+        }
+    }
+
+    public void print() {
+        print(first);
+    } 
+
     public static void main(String [] args) {
         SinglyLinkList sllist = new SinglyLinkList(5);
-        System.out.println(sllist.getFirst());
         sllist.addFirst(10);
-        System.out.println(sllist.getFirst());
+        sllist.addLast(15);
+
+        sllist.print();
     }
 
 }
