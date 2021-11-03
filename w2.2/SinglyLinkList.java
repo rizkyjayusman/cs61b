@@ -13,6 +13,10 @@ public class SinglyLinkList {
     private IntNode first;
     private int size = 0;
 
+    public SinglyLinkList() {
+        first = null;
+    }
+
     public SinglyLinkList(int x) {
         first = new IntNode(x, null);
         size++;
@@ -55,7 +59,8 @@ public class SinglyLinkList {
     }
 
     public static void main(String [] args) {
-        SinglyLinkList sllist = new SinglyLinkList(5);
+        SinglyLinkList sllist = new SinglyLinkList();
+        sllist.addFirst(5);
         sllist.addFirst(10);
         sllist.addLast(15);
 
