@@ -10,49 +10,53 @@ public class SinglyLinkList {
         }
     }
 
-    private IntNode sentinel;
+    private IntNode first;
     private int size = 0;
 
     public SinglyLinkList() {
-        sentinel = new IntNode(0, null);
+        first = null;
     }
 
     public SinglyLinkList(int x) {
-        sentinel = new IntNode(0, null);
-        sentinel = new IntNode(x, sentinel);
+        first = new IntNode(x, null);
         size++;
     }
 
     public void addFirst(int x) {
-        sentinel = new IntNode(x, sentinel);
+        first = new IntNode(x, first);
         size++;
     }
 
     public int getFirst() {
-        return sentinel.next.item;
+        return first.item;
     }
 
     public void addLast(int x) {
-        IntNode n = sentinel;
+        if(first == null) {
+            first = new IntNode(x, null);
+            return;
+        }
+
+        IntNode n = first;
         while(n.next != null) {
             n = n.next;
         }
 
-        IntNode nw = new IntNode(n.item, n.next);
-        n.item = x;
-        n.next = nw;
+        IntNode temp = new IntNode(x, null); 
+        n.next = temp;
         size++;
     }
 
     private static void print(IntNode node) {
-        if(node.next != null) {
         System.out.println(node.item);
-            print(node.next);
+        IntNode n = node.next;
+        if(n != null) {
+            print(n);
         }
     }
 
     public void print() {
-        print(sentinel);
+        print(first);
     } 
 
     public int size() {
